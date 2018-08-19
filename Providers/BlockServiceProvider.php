@@ -27,6 +27,11 @@ class BlockServiceProvider extends ServiceProvider
     {
         $this->registerBindings();
         $this->registerFacade();
+
+        $this->app->extend('asgard.ModulesList', function($app) {
+            array_push($app, 'block');
+            return $app;
+        });
     }
 
     public function boot()
